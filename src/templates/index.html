@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <title>Pokémon auto-generation application</title>
+  </head>
+  <body>
+
+    <div class="container text-center">
+      <div class="row justify-content-center">
+        <div class="col">
+          <h1></h1>
+        </div>
+      </div>
+    </div>
+
+    <div class="container text-center">
+      <div class="row justify-content-center">
+        <div class="col">
+          <div class="p-3 mb-2 bg-danger text-white">
+            <h2>新ポケモン生成研究所</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <img class="mx-auto d-block" src="images/okido.png">
+        </div>
+      </div>
+    </div>
+
+    <div class="container text-center">
+      <div class="row justify-content-center">
+        <div class="col">
+          <h1></h1>
+        </div>
+      </div>
+    </div>
+    
+    <div class="container text-center">
+      <div class="row justify-content-center">
+        <div class="col-4">
+          <form method = "POST" action = "/image_generation_form">
+            <input  class="btn btn-primary" type = submit value = 新しいポケモンを生成する>
+          </form>
+        </div>
+      </div>
+    </div>
+  
+    <div class="container text-center">
+      <div class="row justify-content-center">
+        <div class="col">
+          <h1></h1>
+        </div>
+      </div>
+    </div>
+
+    {% if image %}
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <img class="mx-auto d-block" src="{{ image  }}">
+          </div>  
+        </div>
+      </div>    
+      <div class="container text-center">
+        <div class="row justify-content-center">
+          <div class="col">
+            <h1></h1>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+      <div class="container text-center">
+        <div class="row justify-content-center">
+          <div class="col">
+            <h3>新しく生成したポケモンのタイプと特徴を選択してください</h3>
+          </div>
+        </div>
+      </div>
+      <form method="POST" action="/text_generation_form">
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <label>タイプ1</label>
+              <select name="type_1" multiple>
+                <option value="ノーマル">ノーマル</option>
+                <option value="ほのお">ほのお</option>
+                <option value="みず">みず</option>
+                <option value="でんき">でんき</option>
+                <option value="くさ">くさ</option>
+                <option value="こおり">こおり</option>
+                <option value="かくとう">かくとう</option>
+                <option value="どく">どく</option>
+                <option value="じめん">じめん</option>
+                <option value="ひこう">ひこう</option>
+                <option value="エスパー">エスパー</option>
+                <option value="むし">むし</option>
+                <option value="いわ">いわ</option>
+                <option value="ゴースト">ゴースト</option>
+                <option value="ドラゴン">ドラゴン</option>
+                <option value="あく">あく</option>
+                <option value="はがね">はがね</option>
+                <option value="フェアリー">フェアリー</option>
+              </select>
+            </div>
+            <div class="col">
+              <label>タイプ2</label>
+              <select name="type_2" multiple>
+                <option value="---">---</option>
+                <option value="ノーマル">ノーマル</option>
+                <option value="ほのお">ほのお</option>
+                <option value="みず">みず</option>
+                <option value="でんき">でんき</option>
+                <option value="くさ">くさ</option>
+                <option value="こおり">こおり</option>
+                <option value="かくとう">かくとう</option>
+                <option value="どく">どく</option>
+                <option value="じめん">じめん</option>
+                <option value="ひこう">ひこう</option>
+                <option value="エスパー">エスパー</option>
+                <option value="むし">むし</option>
+                <option value="いわ">いわ</option>
+                <option value="ゴースト">ゴースト</option>
+                <option value="ドラゴン">ドラゴン</option>
+                <option value="あく">あく</option>
+                <option value="はがね">はがね</option>
+                <option value="フェアリー">フェアリー</option>
+              </select>
+            </div>
+            <div class="col">
+              <label>特徴1</label>
+              <select name="feature_1" multiple>
+                <option value="のんびり">のんびり</option>
+                <option value="おこりっぽい">おこりっぽい</option>
+                <option value="泳ぐ">泳ぐ</option>
+                <option value="電池">電池</option>
+                <option value="花">花</option>
+                <option value="アイス">アイス</option>
+                <option value="戦う">戦う</option>
+                <option value="くさい">くさい</option>
+                <option value="がんじょう">がんじょう</option>
+                <option value="きれいな羽">きれいな羽</option>
+                <option value="マジシャン">マジシャン</option>
+                <option value="素早い">素早い</option>
+                <option value="石集め">石集め</option>
+                <option value="おどかす">おどかす</option>
+                <option value="孤独">孤独</option>
+                <option value="わるだくみ">わるだくみ</option>
+                <option value="きらきら">きらきら</option>
+                <option value="やさしい">やさしい</option>
+              </select>
+            </div>
+            <div class="col">
+              <label>特徴2</label>
+              <select name="feature_2" multiple>
+                <option value="街">街</option>
+                <option value="人間">人間</option>
+                <option value="海">海</option>
+                <option value="発電所">発電所</option>
+                <option value="森の中">森の中</option>
+                <option value="雪国">雪国</option>
+                <option value="道場">道場</option>
+                <option value="ゴミ置き場">ゴミ置き場</option>
+                <option value="砂漠">砂漠</option>
+                <option value="気球">気球</option>
+                <option value="泥棒">泥棒</option>
+                <option value="競技場">競技場</option>
+                <option value="洞窟">洞窟</option>
+                <option value="廃墟">廃墟</option>
+                <option value="不明">不明</option>
+                <option value="警察">警察</option>
+                <option value="鉱山">鉱山</option>
+                <option value="家">家</option>
+              </select>
+            </div>
+            <div class="col">
+              <label>特徴3</label>
+              <select name="feature_3" multiple>
+                <option value="すき">すき</option>
+                <option value="きらい">きらい</option>
+                <option value="にがて">にがて</option>
+                <option value="大好物">大好物</option>
+                <option value="得意">得意</option>
+                <option value="アレルギー">アレルギー</option>
+                <option value="実は">実は</option>
+                <option value="お風呂">お風呂</option>
+                <option value="さかな">さかな</option>
+                <option value="車">車</option>
+                <option value="タイヤ">タイヤ</option>
+                <option value="こわい">こわい</option>
+                <option value="わからない">わからない</option>
+                <option value="大きい">大きい</option>
+                <option value="小さい">小さい</option>
+                <option value="あいさつ">あいさつ</option>
+                <option value="エイリアン">エイリアン</option>
+              </select>
+            </div>  
+          </div>
+        </div>
+        <div class="container text-center">
+          <div class="row justify-content-center">
+            <div class="col">
+              <h1></h1>
+            </div>
+          </div>
+        </div>
+        <div class="container text-center">
+          <div class="row justify-content-center">
+            <div class="col">
+              <input  class="btn btn-primary" type = submit value = 図鑑説明を生成>
+            </div>
+          </div>
+        </div>
+        <div class="container text-center">
+          <div class="row justify-content-center">
+            <div class="col">
+              <h1></h1>
+            </div>
+          </div>
+        </div>
+        {% if text %}
+          <div class="container">
+            <div class="row">
+              <div class="col">
+                <div class="card">
+                  <div class="card-body">
+                    {{ text }}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endif %}
+      </form>
+
+      
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  </body>
+</html>
