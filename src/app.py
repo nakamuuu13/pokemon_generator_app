@@ -42,11 +42,16 @@ def generation_form():
         #[height,width,channel]に変換する必要がある
         image = (picture[i].transpose(1, 2, 0))
 
-    
-    image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-    cv2.imwrite('src/templates/images/pokemon_generation.png', image)
-    
-    return render_template('index.html', image='images/pokemon_generation.png')
+    # 画像書き込み用バッファ作成
+    buf = io.BytesIO()
+    image = Image.fromarray(image)
+    image.save(buf, 'png')
+    # バイナリデータを base64 でエンコードして utf-8 でデコード
+    base64_str = base64.b64encode(buf.getvalue()).decode('utf-8')
+    # HTML 側の src の記述に合わせるために付帯情報付与する
+    base64_data = 'data:image/png;base64,{}'.format(base64_str)
+            
+    return render_template('index.html', image=base64_data)
 
 @app.route('/text_generation_form', methods=["POST"])
 def text_generation_form():

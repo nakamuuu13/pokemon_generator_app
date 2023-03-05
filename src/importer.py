@@ -6,6 +6,9 @@ import matplotlib
 import matplotlib.pyplot as plt
 matplotlib.use('agg')
 import cv2
+import io
+from PIL import Image
+import base64
 
 import openai
 
