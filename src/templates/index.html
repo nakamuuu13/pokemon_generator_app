@@ -80,14 +80,22 @@
         </div>
       </div>
     {% endif %}
-      <div class="container text-center">
-        <div class="row justify-content-center">
+
+    <div>
+      <div class="container">
+        <div class="row">
           <div class="col">
-            <h3>新しく生成したポケモンのタイプと特徴を選択してください</h3>
+            <div class="card">
+              <div class="card-body">
+                <div id="text">生成した図鑑の説明が表示されます</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      <form method="POST" action="/text_generation_form">
+
+  
+      <form>
         <div class="container">
           <div class="row">
             <div class="col">
@@ -217,7 +225,7 @@
         <div class="container text-center">
           <div class="row justify-content-center">
             <div class="col">
-              <input  class="btn btn-primary" type = submit value = 図鑑説明を生成>
+              <input class="btn btn-primary" type="button" value="図鑑説明を生成" onclick="updateText()">
             </div>
           </div>
         </div>
@@ -228,17 +236,19 @@
             </div>
           </div>
         </div>
-        {% if text %}
-          <div class="container">
-            <div class="row">
-              <div class="col">
-                <div class="card">
-                  <div class="card-body">
-                    {{ text }}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        {% endif %}
       </form>
+    </div>
+
+    <script>
+      // Pythonから送信されたテキストを取得するための関数
+      function updateText() {
+        fetch('/update')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById("text").innerHTML = data;
+        });
+      }
+    </script>
+
+  </body>
+</html>

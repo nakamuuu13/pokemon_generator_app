@@ -1,7 +1,7 @@
 import pokemon_generater
 from importer import *
 
-openai.api_key = "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"
+openai.api_key = "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"
 def generate_text(prompt, model, length):
     completions = openai.Completion.create(
         engine=model,
@@ -53,8 +53,8 @@ def generation_form():
             
     return render_template('index.html', image=base64_data)
 
-@app.route('/text_generation_form', methods=["POST"])
-def text_generation_form():
+@app.route('/update')
+def update_text():
 
     type_1 = request.form.getlist('type_1')
     type_2 = request.form.getlist('type_2')
@@ -66,9 +66,9 @@ def text_generation_form():
     model = "text-davinci-003"
     length = 200
 
-    text = generate_text(prompt, model, length)
-    
-    return render_template('index.html',image='images/pokemon_generation.png', text=text)
+    new_text = generate_text(prompt, model, length)
+
+    return new_text
 
 
 if __name__ == '__main__':
