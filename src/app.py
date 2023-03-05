@@ -25,7 +25,7 @@ def generation_form():
     # インスタンス化
     generator = pokemon_generater.Generator()
     
-    generator.load_state_dict(torch.load('src/generator_mavg_training_model_gpu6.pth', map_location=torch.device('cpu')))
+    generator.load_state_dict(torch.load('https://github.com/nakamuuu13/pokemon_generator_app/blob/master/src/generator_mavg_training_model_gpu6.pth', map_location=torch.device('cpu')))
     # 推論モード
     generator.eval()
 
