@@ -10,6 +10,7 @@ import io
 from PIL import Image
 import base64
 
+import os
 import openai
 
 from flask import Flask, request, render_template
