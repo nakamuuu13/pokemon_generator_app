@@ -1,7 +1,7 @@
 import pokemon_generater
 from importer import *
 
-api_key = os.environ.get('OPEN-AI_API-Key')
+api_key = os.getenv('OPEN-AI_API-Key')
 
 openai.api_key = api_key
 def generate_text(prompt, model, length):
