@@ -239,7 +239,19 @@
       </form>
     </div>
 
+    <button onclick="toggleText()">作成までのお話</button>
+  	<p id="text" style="display:none;">ここに文章が入ります。</p>
     
+    <script>
+      function toggleText() {
+        var text = document.getElementById("text");
+        if (text.style.display === "none") {
+          text.style.display = "block";
+        } else {
+          text.style.display = "none";
+        }
+      }
+    </script>
 
     <script>
       // Pythonから送信されたテキストを取得するための関数
