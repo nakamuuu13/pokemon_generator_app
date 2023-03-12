@@ -1,7 +1,7 @@
 import pokemon_generater
 from importer import *
 
-api_key = os.environ['RENDER_OPEN-AI_API_Key']
+api_key = os.environ['OPEN_AI_API_KEY']
 if api_key is None:
     raise ValueError('API_KEY not set')
 
