@@ -1,12 +1,13 @@
 import pokemon_generater
 from importer import *
 
-api_key = os.environ['OPEN_AI_API_KEY']
-if api_key is None:
-    raise ValueError('API_KEY not set')
-
-openai.api_key = api_key
 def generate_text(prompt, model, length):
+
+    api_key = os.environ['OPEN_AI_API_KEY']
+    if api_key is None:
+        raise ValueError('API_KEY not set')
+
+    openai.api_key = api_key
     completions = openai.Completion.create(
         engine=model,
         prompt=prompt,
@@ -77,4 +78,5 @@ def update_text():
 
 if __name__ == '__main__':
     # app.run(port=8888)
-    app.run()
+    # app.run()
+    app.run(host='0.0.0.0')
