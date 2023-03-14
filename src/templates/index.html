@@ -4,14 +4,11 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-
     <title>Pokémon auto-generation application</title>
   </head>
   <body>
-
     <div class="container text-center">
       <div class="row justify-content-center">
         <div class="col">
@@ -19,7 +16,6 @@
         </div>
       </div>
     </div>
-
     <div class="container text-center">
       <div class="row justify-content-center">
         <div class="col">
@@ -29,7 +25,6 @@
         </div>
       </div>
     </div>
-
     <div class="container">
       <div class="row">
         <div class="col">
@@ -45,7 +40,6 @@
         </div>
       </div>
     </div>
-    
     <div class="container text-center">
       <div class="row justify-content-center">
         <div class="col-4">
@@ -55,7 +49,6 @@
         </div>
       </div>
     </div>
-  
     <div class="container text-center">
       <div class="row justify-content-center">
         <div class="col">
@@ -63,7 +56,6 @@
         </div>
       </div>
     </div>
-
     {% if image %}
       <div class="container">
         <div class="row">
@@ -80,7 +72,6 @@
         </div>
       </div>
     {% endif %}
-
     <div>
       <div class="container">
         <div class="row">
@@ -93,8 +84,6 @@
           </div>
         </div>
       </div>
-
-  
       <form>
         <div class="container">
           <div class="row">
@@ -238,25 +227,126 @@
         </div>
       </form>
     </div>
-
     <div class="container text-center">
-      <div class="row justify-content-center">
+      <div class="row">
         <div class="col">
-          <button onclick="toggleText()">作成までのお話</button>
-          <div class="card">
-            <div class="card-body">
-              <p id="text" style="display:none;">ここに文章が入ります。</p>
-            </div>
-          </div>      
+          <button onclick="toggleText()">おまけ</button> 
         </div>
       </div>
     </div>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="card">
+            <div class="card-body">
+              <div id="story" style="display:none;">
+                <h1>~作成までのお話~</h1>
+                <u>
+                  <h3>1. 背景</h3>
+                </u>
+                <p>みなさん、ポケットモンスター最新作。<strong>スカーレット・バイオレット</strong>はもうプレイしましたか？</p>
+                <p>ついにポケモンの数も1,000匹を超えたみたいですね・・・。もう多すぎて覚えられません。</p>
+                <p>ちなみに私のポケモンデビューは、<strong>ダイヤモンド・パール</strong>です。</p>
+                <p>親に攻略本を買ってもらって、ボロボロになるまで読み込んで、夜に隠れてプレイしたのは本当にいい思い出です。(あの頃に戻りたい)</p>
+                <p>小さい頃はよく、新しいポケモンが出たらこんな感じかな？とか、公式よりセンスあるわ〜。</p>
+                <p>とか思いながら、架空のポケモンを絵に描いたりしていました。</p>
+                <p>そのため、せっかく大人になったので？<strong>画像生成(GAN)</strong>の技術を使って、ポケモンを生成してみたら面白い！と、考え</p>
+                <p><strong>新ポケモン生成研究所</strong>を設立しました（笑）</p>
+                <u>
+                  <h3>2. GANの調査</h3>
+                </u>
+                <P>GANについて理解を深めるために、書籍を購入し学習しました。(MNISTをデータセットの画像生成するタスクを学習)</P>
+                <div class="container">
+                  <div class="row">
+                    <div class="col-4">
+                      <div class="card" style="width: 18rem;">
+                        <img class="mx-auto d-block" src="./images/物体検出とGAN、オートエンコーダー、画像処理入門.jpg">
+                      </div>
+                    </div>
+                    <div class="col-4">
+                      <div class="card" style="width: 18rem;">
+                        <img class="mx-auto d-block" src="./images/generated_epoch_001.png">
+                          <div class="row">
+                            <div class="col">
+                            初期時の生成画像
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-4">
+                      <div class="card" style="width: 18rem;">
+                        <img class="mx-auto d-block" src="./images/generated_epoch_010.png">
+                        <div class="row">
+                          <div class="col">
+                            終了時の生成画像
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <p>また、下記の先駆者様たちを参考にさせていただきました。</p>
+                <p><a href="https://qiita.com/kosakae256/items/cf3293861c14956cce18">DCGANとPGGANを習得したお話</a></p>
+                <p><a href="https://rightcode.co.jp/blog/information-technology/gan-authentic-elaborate-image-generation-models">GANで本物のように精巧な画像生成モデルを作ってみた【Pytorch】</a></p>
+                <p><a href="https://qiita.com/zassou65535/items/57fe3bd677159cdb2528">メルアイコン生成器 version2を作った話</a></p>
+                <p>理想のイメージは、この方のような架空ポケモンを作成できればいいなぁ。(ハードルめちゃくちゃに上げてしまった)</p>
+                <p><a href="https://ledge.ai/ai-generated-imaginary-pokemon/">AIで約200種類の架空ポケモンを自動生成 完成度の高さが話題に</a></p>
+                <u>
+                  <h3>3. 実装</h3>
+                </u>
+                <P>Google Colaboratory で実装して学習してみた</P>
+                <p><a href="https://colab.research.google.com/drive/1CHLG4mk8IHovVWjltjKznaXNYfURbAvF?usp=sharing">コードを閲覧</a></p>
+                <P>学習用データセットは<strong>kaggle</strong>からポケモンの画像、約2,500枚 持ってきました。</P>
+                <h4>いざ学習してみると</h4>
+                <div class="container text-center">
+                  <div class="row justify-content-center">
+                    <div class="col">
+                      <img class="mx-auto d-block" src="./images/初期モデルの生成画像.png">
+                      <p>↑学習したモデルの生成画像（なにこれアメーバ？）</p>
+                    </div>
+                  </div>
+                </div>
+                <p>特徴量が多くあり、なおかつモデルの構造は先駆者たちの参考に作成しているため、ポケモンの生成器として不十分な可能性も・・・</p>
+                <p>とりあえずデータセットを修正して再度学習を行ってみる。</p>
+                <div class="container text-center">
+                  <div class="row justify-content-center">
+                    <div class="col">
+                      <img class="mx-auto d-block" src="./images/yellow_pokemon_dataset.png">
+                      <p>↑黄色いポケモンを中心にGANに学習させる</p>
+                    </div>
+                  </div>
+                </div>
+                <p>1回の学習時間で<strong>約5時間</strong>かかります・・・</p>
+                <div class="container text-center">
+                  <div class="row justify-content-center">
+                    <div class="col">
+                      <video controls loop autoplay width="500px" height="300px">
+                        <source src="./images/out1.mp4" type="video/mp4">
+                      </video>
+                      <p>↑4*4のノイズから256*256の最終生成画像まで</p>
+                    </div>
+                  </div>
+                </div>
 
+                
+                <p></p>
+
+
+
+
+              </div>
+            </div>
+          </div>     
+        </div>
+      </div>
+    </div>
     
+
+
     <script>
       // 作成までのお話を表示/非表示の関数
       function toggleText() {
-        var text = document.getElementById("text");
+        var text = document.getElementById("story");
         if (text.style.display === "none") {
           text.style.display = "block";
         } else {
