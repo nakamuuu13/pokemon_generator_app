@@ -35,7 +35,8 @@ def generation_form():
     generator.eval()
 
     # ノイズを入力
-    z = torch.randn(1, 512*16)
+    # z = torch.randn(1, 512*16)
+    z = torch.randn(1, 256*16)
     picture = generator.forward(z,8)
     picture = picture.detach().numpy()
     picture = np.clip(picture*255., 0, 255).astype(np.uint8)    
