@@ -56,7 +56,7 @@ def generation_form():
     base64_str = base64.b64encode(buf.getvalue()).decode('utf-8')
     # HTML 側の src の記述に合わせるために付帯情報付与する
     base64_data = 'data:image/png;base64,{}'.format(base64_str)
-            
+
     return render_template('index.html', image=base64_data)
 
 @app.route('/update')
