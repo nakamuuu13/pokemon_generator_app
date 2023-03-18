@@ -30,7 +30,7 @@ def generation_form():
     # インスタンス化
     generator = pokemon_generater.Generator()
     
-    generator.load_state_dict(torch.load('./generator_trained_model_gpu.pth', map_location=torch.device('cpu')))
+    generator.load_state_dict(torch.load('./generator_mavg_training_model_gpu5.pth', map_location=torch.device('cpu')))
     # 推論モード
     generator.eval()
 
@@ -70,7 +70,7 @@ def update_text():
     feature_2 = request.form.getlist('feature_2')
     feature_3 = request.form.getlist('feature_3')
 
-    prompt = "{}/{}タイプで、「{}」「{}」「{}」のキーワードだけで、フェイクポケモンの図鑑の説明を30字以内で生成してください。".format(type_1, type_2, feature_1, feature_2, feature_3)
+    prompt = "{}, {}, {}, {}, {}のキーワードだけで、フェイクポケモンの図鑑の説明を30字以内で生成してください。".format(type_1, type_2, feature_1, feature_2, feature_3)
     model = "text-davinci-003"
     length = 200
 
