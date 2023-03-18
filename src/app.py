@@ -48,6 +48,8 @@ def generation_form():
         #[height,width,channel]に変換する必要がある
         image = (picture[i].transpose(1, 2, 0))
 
+    # リサイズ
+    image = cv2.resize(image, (128, 128))
     # 画像書き込み用バッファ作成
     buf = io.BytesIO()
     image = Image.fromarray(image)
