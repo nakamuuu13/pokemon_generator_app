@@ -286,16 +286,16 @@
                   </div>
                 </div>
                 <p>また、下記の先駆者様たちを参考にさせていただきました。</p>
-                <p><a href="https://qiita.com/kosakae256/items/cf3293861c14956cce18">DCGANとPGGANを習得したお話</a></p>
-                <p><a href="https://rightcode.co.jp/blog/information-technology/gan-authentic-elaborate-image-generation-models">GANで本物のように精巧な画像生成モデルを作ってみた【Pytorch】</a></p>
-                <p><a href="https://qiita.com/zassou65535/items/57fe3bd677159cdb2528">メルアイコン生成器 version2を作った話</a></p>
+                <p><a href="https://qiita.com/kosakae256/items/cf3293861c14956cce18">▼DCGANとPGGANを習得したお話</a></p>
+                <p><a href="https://rightcode.co.jp/blog/information-technology/gan-authentic-elaborate-image-generation-models">▼GANで本物のように精巧な画像生成モデルを作ってみた【Pytorch】</a></p>
+                <p><a href="https://qiita.com/zassou65535/items/57fe3bd677159cdb2528">▼メルアイコン生成器 version2を作った話</a></p>
                 <p>理想のイメージは、この方のような架空ポケモンを作成できればいいなぁ。(ハードルめちゃくちゃに上げてしまった)</p>
-                <p><a href="https://ledge.ai/ai-generated-imaginary-pokemon/">AIで約200種類の架空ポケモンを自動生成 完成度の高さが話題に</a></p>
+                <p><a href="https://ledge.ai/ai-generated-imaginary-pokemon/">▼AIで約200種類の架空ポケモンを自動生成 完成度の高さが話題に</a></p>
                 <u>
                   <h3>3. 実装</h3>
                 </u>
                 <P>Google Colaboratory で実装して学習してみた</P>
-                <p><a href="https://colab.research.google.com/drive/1CHLG4mk8IHovVWjltjKznaXNYfURbAvF?usp=sharing">コードを閲覧</a></p>
+                <p><a href="https://colab.research.google.com/drive/1CHLG4mk8IHovVWjltjKznaXNYfURbAvF?usp=sharing">▼コードを閲覧</a></p>
                 <P>学習用データセットは<strong>kaggle</strong>からポケモンの画像、約2,500枚 持ってきました。</P>
                 <h4>いざ学習してみると</h4>
                 <div class="container text-center">
@@ -316,17 +316,29 @@
                     </div>
                   </div>
                 </div>
-                <p>1回の学習時間で<strong>約5時間</strong>かかります・・・</p>
+                <p>ちなみに今回のモデルは、1回の学習時間で<strong>約5時間</strong>かかります・・・</p>
                 <div class="container text-center">
                   <div class="row justify-content-center">
                     <div class="col">
                       <video controls loop autoplay width="500px" height="300px">
                         <source src="./images/out1.mp4" type="video/mp4">
                       </video>
-                      <p>↑4*4のノイズから256*256の最終生成画像まで</p>
+                      <p>↑<strong>4*4</strong>のノイズから<strong>256*256</strong>の最終生成画像まで</p>
                     </div>
                   </div>
                 </div>
+                <p>256*256に近づくほどうまく生成できない状態に陥ってしまうため、64*64で学習するモデルに変更</p>
+                <div class="container text-center">
+                  <div class="row justify-content-center">
+                    <div class="col">
+                      <video controls loop autoplay width="500px" height="300px">
+                        <source src="./images/out2.mp4" type="video/mp4">
+                      </video>
+                      <p>↑<strong>4*4</strong>のノイズから<strong>64*64</strong>で生成するモデルに変更してみる。</p>
+                    </div>
+                  </div>
+                </div>
+                <p>雰囲気、学習データに似た画像を生成することに成功したので実際にデプロイしてアプリ化してみる。</p>
                 <u>
                   <h3>4. デプロイ</h3>
                 </u>
@@ -356,8 +368,8 @@
                 <ul>
                 <li><h4>画像生成モデルを自作するには、<strong>技術</strong>と<strong>時間</strong>と<strong>根気</strong>が大事</h4></li>
                 <p>先駆者の方も言っていましたが、初学者が思った通りのものを作成できるほど、甘くはありませんでした。</p>
-                <p>何が原因でうまく生成できないのかが分からず、データセットを変えたり、学習率や畳み込み層を変化させたりなどでしか、</p>
-                <p>前のモデルとの差別化ができず、モデル自体もあまり変化がなく、圧倒的に知識不足でした。</p>
+                <p>何が原因でうまく生成できないのかが分からず、データセットを変えたり、画像サイズや畳み込み層を変化させたりなどでしか、</p>
+                <p>前のモデルとの差別化ができず、圧倒的に知識不足でした。</p>
                 <p>また先にも述べた通り、1回の学習時間で<strong>約5時間</strong>かかるので、学習がうまくいかなかった時、結構メンタルにきました。
                 <p>本気で高解像度の画像のポケモンを生成するには、<strong>Midjourney</strong>や<strong>DALL•E 2</strong>などをアプリに組み込む方法を考えた方がよさそうと感じました。</p>
                 <li><h4><strong>ChatGPT</strong> やはりすごい</h4></li>
@@ -366,7 +378,7 @@
                 <p>質問の仕方で返答が変わることや、自分が分からないことを教えてくれるので、ChatGPTに愛着が湧きそうになり少し怖くなりました。</p>
                 <p>また、最近<strong>GPT-4</strong>が登場したこともあり、お財布と相談してぜひ使ってみたいなと思います。</p>
                 </ul>
-                <p><a href="https://github.com/nakamuuu13/pokemon_generator_app.git">このWebアプリのコード</a></p>
+                <p><a href="https://github.com/nakamuuu13/pokemon_generator_app.git">▼このWebアプリのコード</a></p>
 
               </div>
             </div>

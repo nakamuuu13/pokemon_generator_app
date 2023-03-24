@@ -76,9 +76,9 @@ class Generator(nn.Module):
 		# inchs  = np.array([512,256,128,64,32, 16,  8], dtype=np.uint32)
 		# outchs = np.array([256,128, 64,32,16,  8,  4], dtype=np.uint32)
 		# sizes  = np.array([  4,  8, 16,32,64,128,256], dtype=np.uint32)
-		inchs  = np.array([256,128,64,32, 16,  8], dtype=np.uint32)
-		outchs = np.array([128, 64,32,16,  8,  4], dtype=np.uint32)
-		sizes  = np.array([  4,  8, 16,32,64], dtype=np.uint32)
+		inchs  = np.array([512, 256,128,64,32, 16,  8], dtype=np.uint32)
+		outchs = np.array([256, 128, 64,32,16,  8,  4], dtype=np.uint32)
+		sizes  = np.array([  4,  8, 16,32], dtype=np.uint32)
 		#最初の層のみ、それを示すフラグをTrueにしておく
 		firsts = np.array([True,False,False,False,False,False,False], dtype=np.bool_)
 		#blockには畳み込み層を格納、toRGBsは入力されたデータを出力画像(RGB3チャネル)に変換するための層を格納
