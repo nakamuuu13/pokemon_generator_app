@@ -69,7 +69,7 @@ def update_text():
     feature_2 = request.form.getlist('feature_2')
     feature_3 = request.form.getlist('feature_3')
 
-    prompt = "{}/{}タイプで, {}, {}, {}の特徴を持つ。このルールでフェイクポケモンの図鑑の説明を30字以内で生成してください。".format(type_1, type_2, feature_1, feature_2, feature_3)
+    prompt = "{}/{}タイプ, {}, {}, {}という言葉を必ず含んでフェイクポケモンの図鑑の説明を40字以内で生成してください。".format(type_1, type_2, feature_1, feature_2, feature_3)
     model = "text-davinci-003"
     length = 200
 
