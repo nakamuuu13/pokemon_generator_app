@@ -30,7 +30,7 @@ def generation_form():
     # インスタンス化
     generator = pokemon_generater.Generator()
     
-    generator.load_state_dict(torch.load('./generator_mavg_training_model_gpu5.pth', map_location=torch.device('cpu')))
+    generator.load_state_dict(torch.load('./generator_trained_model_gpu.pth', map_location=torch.device('cpu')))
     # 推論モード
     generator.eval()
 
