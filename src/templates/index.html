@@ -84,12 +84,12 @@
           </div>
         </div>
       </div>
-      <form>
+
         <div class="container">
           <div class="row">
             <div class="col">
               <label>タイプ1</label>
-              <select name="type_1" multiple>
+              <select id="type_1" multiple>
                 <option value="ノーマル">ノーマル</option>
                 <option value="ほのお">ほのお</option>
                 <option value="みず">みず</option>
@@ -112,7 +112,7 @@
             </div>
             <div class="col">
               <label>タイプ2</label>
-              <select name="type_2" multiple>
+              <select id="type_2" multiple>
                 <option value="---">---</option>
                 <option value="ノーマル">ノーマル</option>
                 <option value="ほのお">ほのお</option>
@@ -136,7 +136,7 @@
             </div>
             <div class="col">
               <label>特徴1</label>
-              <select name="feature_1" multiple>
+              <select id="feature_1" multiple>
                 <option value="のんびり">のんびり</option>
                 <option value="おこりっぽい">おこりっぽい</option>
                 <option value="泳ぐ">泳ぐ</option>
@@ -159,7 +159,7 @@
             </div>
             <div class="col">
               <label>特徴2</label>
-              <select name="feature_2" multiple>
+              <select id="feature_2" multiple>
                 <option value="街">街</option>
                 <option value="人間">人間</option>
                 <option value="海">海</option>
@@ -182,7 +182,7 @@
             </div>
             <div class="col">
               <label>特徴3</label>
-              <select name="feature_3" multiple>
+              <select id="feature_3" multiple>
                 <option value="すき">すき</option>
                 <option value="きらい">きらい</option>
                 <option value="にがて">にがて</option>
@@ -225,7 +225,7 @@
             </div>
           </div>
         </div>
-      </form>
+      
     </div>
     <div class="container text-center">
       <div class="row">
@@ -404,13 +404,31 @@
     <script>
       // Pythonから送信されたテキストを取得するための関数
       function updateText() {
-        fetch('/update')
+        const selectedOption1 = document.getElementById('type_1').value;
+        const selectedOption2 = document.getElementById('type_2').value;
+        const selectedOption3 = document.getElementById('feature_1').value;
+        const selectedOption4 = document.getElementById('feature_2').value;
+        const selectedOption5 = document.getElementById('feature_3').value;
+        fetch('/update', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            selectedOption1: selectedOption1,
+            selectedOption2: selectedOption2,
+            selectedOption3: selectedOption3,
+            selectedOption4: selectedOption4,
+            selectedOption5: selectedOption5
+          })
+        })
         .then(response => response.text())
         .then(data => {
           document.getElementById("text").innerHTML = data;
         });
       }
     </script>
+
 
   </body>
 </html>

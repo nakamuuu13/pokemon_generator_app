@@ -60,20 +60,25 @@ def generation_form():
 
     return render_template('index.html', image=base64_data)
 
-@app.route('/update')
+@app.route('/update', methods=["POST"])
 def update_text():
-
-    type_1 = request.form.getlist('type_1')
-    type_2 = request.form.getlist('type_2')
-    feature_1 = request.form.getlist('feature_1')
-    feature_2 = request.form.getlist('feature_2')
-    feature_3 = request.form.getlist('feature_3')
+    
+    # JSONデータを受け取る
+    data = request.get_json()  
+    # JSONデータから値を取り出す
+    type_1 = data['selectedOption1']  
+    type_2 = data['selectedOption2']
+    feature_1 = data['selectedOption3']
+    feature_2 = data['selectedOption4']
+    feature_3 = data['selectedOption5']
 
     prompt = "{}/{}タイプ, {}, {}, {}という言葉を必ず含んでフェイクポケモンの図鑑の説明を40字以内で生成してください。".format(type_1, type_2, feature_1, feature_2, feature_3)
+    # prompt = "電気タイプの色が黄色の存在しないポケモンの図鑑の説明を40字以内で生成してください。"
     model = "text-davinci-003"
     length = 200
 
     new_text = generate_text(prompt, model, length)
+    print(type_1, type_2, feature_1, feature_2, feature_3)
 
     return new_text
 
